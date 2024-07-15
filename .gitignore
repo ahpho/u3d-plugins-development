@@ -19,3 +19,19 @@ src/managed/TstUnity/obj/
 .vs
 /example/Assembly-CSharp-Editor.csproj
 /example/Bin
+/example/.vsconfig
+
+# Android Proj files
+*.log
+*.bin
+*.dex
+*.so
+*.dll
+*.dll.jar
+*.pdb
+*.pdb.jar
+/example/_Build/AndroidProj/launcher/build/intermediates
+/example/_Build/AndroidProj/unityLibrary/build/intermediates
+/example/_Build/AndroidProj/launcher/build/outputs
+/example/_Build/AndroidProj/unityLibrary/build/outputs
+
