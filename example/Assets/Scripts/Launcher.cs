@@ -23,16 +23,21 @@ public class Launcher : MonoBehaviour
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
+        const int BtnCount = 4;
 
-        if (GUILayout.Button("Demo Managed", GUILayout.Height(Screen.height / 3))) {
+        if (GUILayout.Button("Demo Managed", GUILayout.Height(Screen.height / BtnCount))) {
             CallManaged();
         }
 
-        if (GUILayout.Button("Demo C", GUILayout.Height(Screen.height / 3))) {
+        if (GUILayout.Button("切3D场景", GUILayout.Height(Screen.height / BtnCount))) {
+            SceneManager.LoadScene("Main");
+        }
+
+        if (GUILayout.Button("Demo C", GUILayout.Height(Screen.height / BtnCount))) {
             CallCDemo();
         }
 
-        if (GUILayout.Button("Demo System", GUILayout.Height(Screen.height / 3))) {
+        if (GUILayout.Button("Demo System", GUILayout.Height(Screen.height / BtnCount))) {
             CallSystemDemo();
         }
 
