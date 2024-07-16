@@ -5,14 +5,14 @@
 
 RENDERDOC_API_1_6_0* rdoc_api = NULL;
 
-TST_API bool RdwInitModule(const char* szModuleName)
+TST_API bool RdwInitModule(const char* szModuleName) // Android上请传入"libVkLayer_GLES_RenderDoc.so"
 {
 #if defined(WIN32) || defined(_WIN32) || defined(WINDOWS)
 
 #else
 	// At init, on linux/android.
 	// For android replace librenderdoc.so with libVkLayer_GLES_RenderDoc.so
-	void* mod = dlopen("libVkLayer_GLES_RenderDoc.so", RTLD_NOW | RTLD_NOLOAD);
+	void* mod = dlopen(szModuleName, RTLD_NOW | RTLD_NOLOAD);
 	if (mod)
 	{
 		pRENDERDOC_GetAPI RENDERDOC_GetAPI = (pRENDERDOC_GetAPI)dlsym(mod, "RENDERDOC_GetAPI");
