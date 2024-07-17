@@ -6,6 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 苹果系统实现
 /// </summary>
+#if UNITY_IOS
 public class NativeIOS: INative
 {
     [DllImport("__Internal")]
@@ -75,3 +76,4 @@ public class NativeIOS: INative
         throw new System.NotImplementedException();
     }
 }
+#endif

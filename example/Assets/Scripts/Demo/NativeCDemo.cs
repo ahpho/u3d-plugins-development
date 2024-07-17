@@ -93,7 +93,7 @@ public class NativeCDemo : MonoBehaviour
         {
             RDWInterface.RDWDll.RdwStartCapture(IntPtr.Zero, IntPtr.Zero);
         }
-        if (GUILayout.Button("rdw·StartCapture", GUILayout.Height((Screen.height - retHeight) >> 4)))
+        if (GUILayout.Button("rdw·EndCapture", GUILayout.Height((Screen.height - retHeight) >> 4)))
         {
             RDWInterface.RDWDll.RdwEndCapture(IntPtr.Zero, IntPtr.Zero);
         }

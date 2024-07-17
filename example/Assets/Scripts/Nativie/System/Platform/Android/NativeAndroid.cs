@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 安卓系统实现
 /// </summary>
+#if UNITY_ANDROID
 public class NativeAndroid : INative
 {
     private AndroidJavaClass m_JavaClass = new AndroidJavaClass("com.hellowod.example.helper.NativeHelper");
@@ -64,3 +65,4 @@ public class NativeAndroid : INative
         m_JavaClass.CallStatic("shockScreen", time);
     }
 }
+#endif

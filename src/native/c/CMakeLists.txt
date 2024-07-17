@@ -39,6 +39,7 @@ if ( WIN32 AND NOT CYGWIN )
 else ( )
     target_link_libraries(tstunity
 		m
+		log
 		${THIRDPART_LIB} 
 	)
 endif ( )

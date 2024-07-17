@@ -30,6 +30,7 @@ src/managed/TstUnity/obj/
 *.dll.jar
 *.pdb
 *.pdb.jar
+/example/_Build/Android/
 /example/_Build/AndroidProj/launcher/build/intermediates
 /example/_Build/AndroidProj/unityLibrary/build/intermediates
 /example/_Build/AndroidProj/launcher/build/outputs
