@@ -23,8 +23,6 @@ android {
         ndk {
             abiFilters 'armeabi-v7a'
         }
-        versionCode 1
-        versionName '1.0'
         consumerProguardFiles 'proguard-unity.txt'
     }
 
@@ -36,13 +34,21 @@ android {
         noCompress = ['.unity3d', '.ress', '.resource', '.obb', '.bundle', '.unityexp'] + unityStreamingAssets.tokenize(', ')
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
     }
-
     packagingOptions {
-        doNotStrip '*/armeabi-v7a/*.so'
+        jniLibs {
+            keepDebugSymbols += ['*/armeabi-v7a/*.so']
+        }
     }
+
 }
 
 
+android.sourceSets.main.java {
+    srcDirs += [
+            'D:/work_my/debug/u3d-plugins-development-a/example/Assets/Plugins/Native/System/Android/java/com/hellowod/example',
+            'D:/work_my/debug/u3d-plugins-development-a/example/Assets/Plugins/Native/System/Android/java/com/hellowod/example/helper'
+    ]
+}
 
 
 // Dependencies for "com.unity.purchasing". This section is automatically generated.
