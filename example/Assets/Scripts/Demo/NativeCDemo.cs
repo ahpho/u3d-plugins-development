@@ -77,25 +77,29 @@ public class NativeCDemo : MonoBehaviour
             Debug.Log($"After VkLayerCore.usleep()"); 
         }
 #endif
-        if (GUILayout.Button("rdw·Module", GUILayout.Height((Screen.height - retHeight) >> 4)))
+        if (GUILayout.Button("[RDW] Module", GUILayout.Height((Screen.height - retHeight) >> 4)))
         {
             RDWInterface.RDWDll.RdwInitModule(@"libVkLayer_GLES_RenderDoc.so");
         }
-        if (GUILayout.Button("rdw·GetTemplate", GUILayout.Height((Screen.height - retHeight) >> 4)))
+        if (GUILayout.Button("[RDW] GetTemplate", GUILayout.Height((Screen.height - retHeight) >> 4)))
         {
             m_strRD = RDWInterface.RDWDll.RdwGetPathTemplate();
         }
-        if (GUILayout.Button("rdw·SetTemplate", GUILayout.Height((Screen.height - retHeight) >> 4)))
+        if (GUILayout.Button("[RDW] SetTemplate", GUILayout.Height((Screen.height - retHeight) >> 4)))
         {
             RDWInterface.RDWDll.RdwSetPathTemplate(@"./FUCKING_FRAME_");
         }
-        if (GUILayout.Button("rdw·StartCapture", GUILayout.Height((Screen.height - retHeight) >> 4)))
+        if (GUILayout.Button("[RDW] StartCapture", GUILayout.Height((Screen.height - retHeight) >> 4)))
         {
             RDWInterface.RDWDll.RdwStartCapture(IntPtr.Zero, IntPtr.Zero);
         }
-        if (GUILayout.Button("rdw·EndCapture", GUILayout.Height((Screen.height - retHeight) >> 4)))
+        if (GUILayout.Button("[RDW] EndCapture", GUILayout.Height((Screen.height - retHeight) >> 4)))
         {
             RDWInterface.RDWDll.RdwEndCapture(IntPtr.Zero, IntPtr.Zero);
+        }
+        if (GUILayout.Button("[RDW] TriggerCapture", GUILayout.Height((Screen.height - retHeight) >> 4)))
+        {
+            RDWInterface.RDWDll.RdwTriggerCapture();
         }
 
         GUILayout.TextArea(

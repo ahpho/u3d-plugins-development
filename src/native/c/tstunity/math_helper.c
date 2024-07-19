@@ -74,7 +74,19 @@ TST_API void RdwEndCapture(void* devicePtr, void* wndHandle)
 	}
 #endif
 }
-
+TST_API void RdwTriggerCapture()
+{
+#if defined(WIN32) || defined(_WIN32) || defined(WINDOWS)
+#else
+	if (rdoc_api) {
+		rdoc_api->TriggerCapture();
+		LOGD("[%s] TriggerCapture done.\n", __FUNCTION__);
+	}
+	else {
+		LOGD("[%s] TriggerCapture skipped, rdoc_api=NULL.\n", __FUNCTION__);
+	}
+#endif
+}
 
 
 TST_API int tst_add(int a, int b){

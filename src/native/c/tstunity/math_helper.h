@@ -16,5 +16,6 @@ TST_API const char* RdwGetPathTemplate(void);
 TST_API void RdwSetPathTemplate(const char* szTemplate);
 TST_API void RdwStartCapture(void* devicePtr, void* wndHandle);
 TST_API void RdwEndCapture(void* devicePtr, void* wndHandle);
+TST_API void RdwTriggerCapture();
 
 #endif//MATH_HELPER_

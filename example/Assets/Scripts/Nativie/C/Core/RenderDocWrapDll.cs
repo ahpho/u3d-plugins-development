@@ -67,7 +67,7 @@ namespace RDWInterface
         public static extern int RdwStartCapture(IntPtr devicePtr, IntPtr wndHandle);
         [DllImport(RENDERDOCWRAP, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern int RdwEndCapture(IntPtr devicePtr, IntPtr wndHandle);
-	}
-
-
+        [DllImport(RENDERDOCWRAP, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int RdwTriggerCapture();
+    }
 }
