@@ -1,0 +1,7 @@
+由于*.so没有入库到Android项目里，所以更新步骤为：
+1. git cleanup AndroidProj目录
+2. 从unity导出安卓项目到AndroidProj
+3. 乌龟git revert面板中，检查差异文件（大部分需要revert）
+4. AndroidStudio构建
+
+暂时IL2CPP有问题。。。
