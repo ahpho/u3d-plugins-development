@@ -15,7 +15,7 @@ android {
     defaultConfig {
         minSdkVersion 22
         targetSdkVersion 31
-        applicationId 'com.ksh.example'
+        applicationId 'com.hellowod.example'
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
