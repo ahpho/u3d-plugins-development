@@ -20,7 +20,7 @@ android {
         minSdkVersion 22
         targetSdkVersion 31
         ndk {
-            abiFilters 'armeabi-v7a'
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
         consumerProguardFiles 'proguard-unity.txt'
     }
@@ -36,6 +36,7 @@ android {
     packagingOptions {
         jniLibs {
             keepDebugSymbols += ['*/armeabi-v7a/*.so']
+            keepDebugSymbols += ['*/arm64-v8a/*.so']
         }
     }
 
