@@ -24,13 +24,15 @@ public class Launcher : MonoBehaviour
     {
         GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
         const int BtnCount = 5;
+        string info = "N/A";
 
         if (GUILayout.Button("Demo Managed", GUILayout.Height(Screen.height / BtnCount))) {
             CallManaged();
-            //info = SystemInfo.deviceModel + "," + SystemInfo.deviceName;
         }
 
         if (GUILayout.Button("切3D场景", GUILayout.Height(Screen.height / BtnCount))) {
+            info = SystemInfo.deviceModel + "," + SystemInfo.deviceName;
+            Debug.LogError($"[切3D场景] info={info}");
             SceneManager.LoadScene("Main");
         }
 
@@ -42,8 +44,8 @@ public class Launcher : MonoBehaviour
             CallSystemDemo();
         }
 
-        if (GUILayout.Button(info, GUILayout.Height(Screen.height / BtnCount)))
-        {
+        if (GUILayout.Button(info, GUILayout.Height(Screen.height / BtnCount))) {
+            Debug.LogError($"Btn 5 clicked! ");
         }
 
         GUILayout.EndArea();
