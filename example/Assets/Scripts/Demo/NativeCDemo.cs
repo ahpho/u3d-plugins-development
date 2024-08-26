@@ -87,7 +87,7 @@ public class NativeCDemo : MonoBehaviour
         }
         if (GUILayout.Button("[RDW] SetTemplate", GUILayout.Height((Screen.height - retHeight) >> 4)))
         {
-            RDWInterface.RDWDll.RdwSetPathTemplate(@"./FUCKING_FRAME_");
+            RDWInterface.RDWDll.RdwSetPathTemplate(@"/sdcard/Android/data/com.hellowod.example/files/RenderDoc/FuckFrame_"); 
         }
         if (GUILayout.Button("[RDW] StartCapture", GUILayout.Height((Screen.height - retHeight) >> 4)))
         {

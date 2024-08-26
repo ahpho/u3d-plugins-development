@@ -23,10 +23,11 @@ public class Launcher : MonoBehaviour
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(0, 0, Screen.width, Screen.height));
-        const int BtnCount = 4;
+        const int BtnCount = 5;
 
         if (GUILayout.Button("Demo Managed", GUILayout.Height(Screen.height / BtnCount))) {
             CallManaged();
+            //info = SystemInfo.deviceModel + "," + SystemInfo.deviceName;
         }
 
         if (GUILayout.Button("切3D场景", GUILayout.Height(Screen.height / BtnCount))) {
@@ -39,6 +40,10 @@ public class Launcher : MonoBehaviour
 
         if (GUILayout.Button("Demo System", GUILayout.Height(Screen.height / BtnCount))) {
             CallSystemDemo();
+        }
+
+        if (GUILayout.Button(info, GUILayout.Height(Screen.height / BtnCount)))
+        {
         }
 
         GUILayout.EndArea();
