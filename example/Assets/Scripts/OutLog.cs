@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System;
-using UnityEditor.PackageManager;
-using UnityEngine.Assertions;
 
 public class OutLog : MonoBehaviour
 {
