@@ -1,5 +1,4 @@
-﻿using AuthorZhidai;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +7,7 @@ public class Launcher : MonoBehaviour
 {
     private void Awake()
     {
-        Log.Init();
+        OutLog.Init();
     }
 
     private void CallManaged()
@@ -38,7 +37,7 @@ public class Launcher : MonoBehaviour
 
         if (GUILayout.Button("切3D场景", GUILayout.Height(Screen.height / BtnCount))) {
             info = SystemInfo.deviceModel + "," + SystemInfo.deviceName;
-            Log.Error($"[切3D场景] info={info}");
+            Debug.LogError($"[切3D场景] info={info}");
             SceneManager.LoadScene("Main");
         }
 
@@ -51,7 +50,7 @@ public class Launcher : MonoBehaviour
         }
 
         if (GUILayout.Button(info, GUILayout.Height(Screen.height / BtnCount))) {
-            Log.Error($"Btn 5 clicked! ");
+            Debug.LogWarning($"Btn 5 clicked! ");
         }
 
         GUILayout.EndArea();
