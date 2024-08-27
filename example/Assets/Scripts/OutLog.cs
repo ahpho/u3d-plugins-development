@@ -7,25 +7,30 @@ using System;
 
 public class OutLog : MonoBehaviour
 {
+    private static bool mInited = false;
+    private string mOutpath;
     static readonly List<string> mWriteLines = new();
-    static readonly List<Tuple<Color, string>> mDisplayLines = new ();
-    private string outpath;
+    static readonly List<Tuple<Color, string>> mDisplayLines = new();
 
     public static void Init()
     {
-        GameObject outLog = new("OutLog", new System.Type[] { typeof(OutLog) });
+        if (mInited) return;
+        mInited = true;
+        GameObject outLog = new("__OutLog__", new System.Type[] { typeof(OutLog) });
         DontDestroyOnLoad(outLog);
     }
 
     void Start()
     {
+        string dir = Path.Combine(Application.persistentDataPath, "Logs");
+        if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
         string t = System.DateTime.Now.ToString("yyyyMMdd-hhmmss");
-        outpath = string.Format("{0}/{1}.log", Application.persistentDataPath, t);
+        mOutpath = string.Format("{0}/{1}.log", dir, t);
 
         //每次启动客户端删除之前保存的Log
-        if (System.IO.File.Exists(outpath))
+        if (System.IO.File.Exists(mOutpath))
         {
-            File.Delete(outpath);
+            File.Delete(mOutpath);
         }
 
         Application.logMessageReceived += HandleLog;
@@ -40,7 +45,7 @@ public class OutLog : MonoBehaviour
             string[] temp = mWriteLines.ToArray();
             foreach (string t in temp)
             {
-                using (StreamWriter writer = new StreamWriter(outpath, true, Encoding.UTF8))
+                using (StreamWriter writer = new StreamWriter(mOutpath, true, Encoding.UTF8))
                 {
                     writer.WriteLine(t);
                 }
@@ -57,6 +62,7 @@ public class OutLog : MonoBehaviour
 
         if (type == LogType.Assert || type == LogType.Error || type == LogType.Exception)
         {
+            stackTrace = "\t" + stackTrace.Replace("\n", "\n\t");
             mWriteLines.Add(stackTrace);
             //Display(type, stackTrace); // 堆栈不显示在屏幕上
         }
