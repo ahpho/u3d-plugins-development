@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System;
+using UnityEditor.PackageManager;
+using UnityEngine.Assertions;
 
 public class OutLog : MonoBehaviour
 {
@@ -56,7 +58,7 @@ public class OutLog : MonoBehaviour
 
     void HandleLog(string logString, string stackTrace, LogType type)
     {
-        string line = string.Format($"[{System.DateTime.Now.ToString("yyyyMMdd-hhmmss")}] {logString}");
+        string line = string.Format($"[{System.DateTime.Now.ToString("yyyyMMdd-hhmmss")}-{PrefixFrom(type)}] {logString}");
         mWriteLines.Add(line);
         Display(type, line);
 
@@ -89,11 +91,24 @@ public class OutLog : MonoBehaviour
             {
                 mDisplayLines.RemoveAt(0);
             }
-            mDisplayLines.Add(new Tuple<Color, string>(ColorFor(type), text));
+            mDisplayLines.Add(new Tuple<Color, string>(ColorFrom(type), text));
         }
     }
 
-    static Color ColorFor(LogType type)
+    static string PrefixFrom(LogType type)
+    {
+        switch (type)
+        {
+            case LogType.Error: return "E";
+            case LogType.Assert: return "A";
+            case LogType.Warning: return "W";
+            case LogType.Log: return "I";
+            case LogType.Exception: return "X";
+        }
+        return "N/A";
+    }
+
+    static Color ColorFrom(LogType type)
     {
         switch (type)
         {
